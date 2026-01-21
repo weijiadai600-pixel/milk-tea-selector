@@ -26,4 +26,6 @@ Thumbs.db
 
 # (optional) if you don't want to upload embeddings
 # data/embeddings/
+data/embeddings/
+
 EOF
