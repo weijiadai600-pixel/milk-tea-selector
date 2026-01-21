@@ -1,0 +1,18 @@
+# Core
+numpy>=1.23
+pandas>=1.5
+tqdm>=4.66
+Pillow>=9.5
+
+# PyTorch + vision
+torch>=2.0
+torchvision>=0.15
+
+# Web UI
+streamlit>=1.30
+
+# Plotting (training curves)
+matplotlib>=3.7
+
+# Optional but recommended (better dependency resolution)
+packaging>=23.2

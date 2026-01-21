@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" modified="2026-01-21T00:00:00.000Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram id="vit_classifier" name="Model Structure">
+    <mxGraphModel dx="1576" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="输入图像&#xa;RGB 224×224" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="60" y="180" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="Patch Embedding&#xa;(16×16 patch)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="280" y="180" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="+ Class Token&#xa;+ Position Embedding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Transformer Encoder ×12&#xa;(MHSA + MLP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="780" y="150" width="240" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="输出 CLS token&#xa;768-d feature" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="180" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="Linear 分类头&#xa;768 → C" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="180" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="输出 logits / softmax&#xa;预测品牌 + 置信度" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="180" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" style="endArrow=block;html=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" style="endArrow=block;html=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" style="endArrow=block;html=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" style="endArrow=block;html=1;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" style="endArrow=block;html=1;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" style="endArrow=block;html=1;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

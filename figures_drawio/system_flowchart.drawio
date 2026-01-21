@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram id="system_flow" name="System Flow">
+    <mxGraphModel dx="1576" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="用户上传奶茶图片" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="Streamlit Web UI&#xa;(web/app.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="300" y="120" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="ViT 特征提取&#xa;(torchvision vit_b_16)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="580" y="120" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="提取 query_feat (768维)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="850" y="120" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="数据库 embeddings&#xa;(data/embeddings/*.pt)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="580" y="240" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="余弦相似度检索 Top-K&#xa;(retrieve_top_k)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="850" y="240" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="推荐结果展示&#xa;(推荐奶茶图片列表)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="240" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="用户点击：❤️更喜欢这杯" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="360" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="偏好向量更新&#xa;q_{t+1}=(1-α)q_t+α f_selected" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="850" y="360" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="下一轮检索推荐" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="580" y="380" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="Brand Classifier&#xa;(ViT+Linear head)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="580" y="30" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="输出预测品牌+置信度&#xa;(Top-1/Top-3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="850" y="30" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="自动勾选品牌筛选 filter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="30" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" style="endArrow=block;html=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" style="endArrow=block;html=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" style="endArrow=block;html=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="18" style="endArrow=block;html=1;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="19" style="endArrow=block;html=1;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" style="endArrow=block;html=1;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" style="endArrow=block;html=1;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" style="endArrow=block;html=1;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" style="endArrow=block;html=1;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="24" style="endArrow=block;html=1;" edge="1" parent="1" source="11" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="25" style="endArrow=block;html=1;" edge="1" parent="1" source="4" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="26" style="endArrow=block;html=1;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="27" style="endArrow=block;html=1;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

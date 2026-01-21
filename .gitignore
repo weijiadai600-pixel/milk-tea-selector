@@ -1,0 +1,29 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# virtual env
+.venv/
+venv/
+env/
+.conda/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+
+# Streamlit cache
+.streamlit/
+
+# (optional) if you don't want to upload embeddings
+# data/embeddings/
+EOF
