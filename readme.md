@@ -5,6 +5,8 @@
 - **上传奶茶图片 → 检索相似奶茶（Top-K）**
 - **Human-in-the-loop**：点击“❤️ 我更喜欢这杯”后更新偏好向量，多轮迭代推荐
 - 额外训练 **品牌分类器（Brand Classifier）**：在 Web 页面显示预测品牌与置信度，并可自动作为筛选条件
+- 演示视频链接：通过网盘分享的文件：final_demo.mp4
+链接: https://pan.baidu.com/s/1nk4EWoAJytmRN6SOnyO1ew?pwd=w3q8 提取码: w3q8 
 
 ---
 
