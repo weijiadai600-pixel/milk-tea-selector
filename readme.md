@@ -10,16 +10,16 @@
 
 ## 1. 课程要求对应实现
 
-### (1) 深度学习 CV：ViT 特征提取
+ (1) 深度学习 CV：ViT 特征提取
 使用 torchvision 的 **ViT-B/16**（ImageNet 预训练）作为 backbone，移除分类头，仅作为 encoder 输出 **768 维特征**。
 
-### (2) 推荐/检索：余弦相似度 Top-K
+ (2) 推荐/检索：余弦相似度 Top-K
 基于 ViT 特征向量做 **Cosine Similarity**，实现 Top-K 图像检索；支持品牌筛选、价格区间筛选（假价格）。
 
-### (3) 交互式偏好更新
+ (3) 交互式偏好更新
 用户点击“❤️ 我更喜欢这杯”后按公式更新偏好向量，实现多轮交互推荐：
 
-### (4) 训练模型：Brand Classifier
+ (4) 训练模型：Brand Classifier
 在 `data/images/` 数据集上训练品牌分类器，训练日志、曲线图与模型权重统一保存到 `results/brand_classifier/`。
 
 
@@ -86,12 +86,12 @@ pip install streamlit pillow tqdm matplotlib pandas
 conda activate pracdl
 cd ~/Practical_Deep_Learning/final_project
 
-# 1) 提取检索数据库 ViT embeddings（生成 data/embeddings/milktea_vit_embeddings.pt）
+ 1) 提取检索数据库 ViT embeddings（生成 data/embeddings/milktea_vit_embeddings.pt）
 python scripts/extract_features.py \
   --data_dir data/images \
   --out_path data/embeddings/milktea_vit_embeddings.pt
 
-# 2) 训练 Brand Classifier（输出到 results/brand_classifier）
+ 2) 训练 Brand Classifier（输出到 results/brand_classifier）
 python train/train_brand_classifier.py \
   --data_dir data/images \
   --out_dir results/brand_classifier \
@@ -99,14 +99,14 @@ python train/train_brand_classifier.py \
   --batch_size 32 \
   --lr 3e-4
 
-# 冻结/解冻策略：只训练分类头
-# python train/train_brand_classifier.py ... --freeze_backbone
-# python train/train_brand_classifier.py ... --freeze_backbone --unfreeze_after 5
+ 冻结/解冻策略：只训练分类头
+ python train/train_brand_classifier.py ... --freeze_backbone
+ python train/train_brand_classifier.py ... --freeze_backbone --unfreeze_after 5
 
-# 3) 绘制训练曲线（保存到 results/brand_classifier/loss_curve.png, acc_curve.png）
+ 3) 绘制训练曲线（保存到 results/brand_classifier/loss_curve.png, acc_curve.png）
 python scripts/plot_train_log.py --log_csv results/brand_classifier/train_log.csv
 
-# 4) 启动 Web 应用(路径原因，必须到web文件夹下运行app.py)
+ 4) 启动 Web 应用(路径原因，必须到web文件夹下运行app.py)
 cd web
 streamlit run app.py
 
